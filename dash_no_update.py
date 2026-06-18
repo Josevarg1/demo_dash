@@ -49,14 +49,14 @@ def update_graph(_, y_chosen, x_chosen):
         return fig, no_update
 
 # por defectos Plotly no acepta callbacks dos callbacks actualizando el mismo par de elementos del Output, se puede habilitar con allow_duplicate=True
-#@callback(
-#    Output(component_id='graph1', component_property='figure', allow_duplicate=True),
-#    Input(component_id='my-dropdown', component_property='value'),
-#    prevent_initial_call = True
-#)
-#def update_graph_color(color_chosen):
-#    fig = px.histogram(...)
-#    return fig
+@callback(
+    Output(component_id='graph1', component_property='figure', allow_duplicate=True),
+    Input(component_id='my-dropdown', component_property='value'),
+    prevent_initial_call = True
+)
+def update_graph_color(color_chosen):
+    fig = px.histogram(...)
+    return fig
 
 # Run the app
 if __name__ == '__main__':
