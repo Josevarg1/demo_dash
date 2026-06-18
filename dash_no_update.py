@@ -8,7 +8,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapmi
 
 # Initialize the app
 app = Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
-
+server = app.server
 # App layout
 app.layout = dbc.Container([
     html.H1(children='Country Analysis'),
@@ -60,4 +60,4 @@ def update_graph(_, y_chosen, x_chosen):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True, port=8060)
+    app.run(debug=False)
